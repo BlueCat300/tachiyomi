@@ -28,7 +28,7 @@
         android:ellipsize="end"
         android:maxLines="1"
         android:textAppearance="@style/TextAppearance.Regular.SubHeading"
-        android:textSize="14sp"
+        android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@id/lang"
         app:layout_constraintEnd_toStartOf="@id/ext_button"
         app:layout_constraintStart_toEndOf="@id/image"
