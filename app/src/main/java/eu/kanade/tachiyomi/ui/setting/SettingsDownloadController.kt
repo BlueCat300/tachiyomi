@@ -64,6 +64,21 @@ class SettingsDownloadController : SettingsController() {
             titleRes = R.string.pref_download_only_over_wifi
             defaultValue = true
         }
+        switchPreference {
+            key = Keys.saveChaptersAsZIP
+            titleRes = R.string.save_chapter_as_zip
+            defaultValue = false
+        }
+        intListPreference {
+            titleRes = R.string.save_chapter_as_zip_level
+            key = Keys.saveChaptersAsZIPLevel
+            entries = arrayOf("0", "1", "2", "3", "4", "5", "6", "7", "8", "9")
+            entryValues = entries
+            defaultValue = "0"
+
+            preferences.saveChaptersAsZIP().asImmediateFlow { isVisible = it }
+                .launchIn(viewScope)
+        }
         preferenceCategory {
             titleRes = R.string.pref_category_delete_chapters
 

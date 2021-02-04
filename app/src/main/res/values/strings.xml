@@ -757,4 +757,8 @@
     <string name="spen_previous_page">Previous page</string>
     <string name="spen_next_page">Next page</string>
 
+    <!-- Fork settings -->
+    <string name="save_chapter_as_zip">Save Chapters as ZIP</string>
+    <string name="save_chapter_as_zip_level">ZIP Compression level</string>
+
 </resources>

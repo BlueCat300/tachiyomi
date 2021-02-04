@@ -195,6 +195,10 @@ object PreferenceKeys {
 
     const val createLegacyBackup = "create_legacy_backup"
 
+    const val saveChaptersAsZIP = "save_chapter_as_zip"
+
+    const val saveChaptersAsZIPLevel = "save_chapter_as_zip_level"
+
     fun trackUsername(syncId: Int) = "pref_mangasync_username_$syncId"
 
     fun trackPassword(syncId: Int) = "pref_mangasync_password_$syncId"

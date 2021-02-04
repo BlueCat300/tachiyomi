@@ -89,7 +89,7 @@ class DownloadProvider(private val context: Context) {
     fun findChapterDir(chapter: Chapter, manga: Manga, source: Source): UniFile? {
         val mangaDir = findMangaDir(manga, source)
         return getValidChapterDirNames(chapter).asSequence()
-            .mapNotNull { mangaDir?.findFile(it) }
+            .mapNotNull { mangaDir?.findFile(it) ?: mangaDir?.findFile("$it.zip") }
             .firstOrNull()
     }
 
@@ -104,7 +104,7 @@ class DownloadProvider(private val context: Context) {
         val mangaDir = findMangaDir(manga, source) ?: return emptyList()
         return chapters.mapNotNull { chapter ->
             getValidChapterDirNames(chapter).asSequence()
-                .mapNotNull { mangaDir.findFile(it) }
+                .mapNotNull { mangaDir.findFile(it) ?: mangaDir.findFile("$it.zip") }
                 .firstOrNull()
         }
     }

@@ -679,4 +679,6 @@
     <string name="action_order_by_chapter_number">По номеру главы</string>
     <string name="action_order_by_upload_date">По дате загрузки</string>
     <string name="action_filter_tracked">Отслеживаемый</string>
+    <string name="save_chapter_as_zip">Сохранять главы как ZIP</string>
+    <string name="save_chapter_as_zip_level">Уровень сжатия ZIP</string>
 </resources>

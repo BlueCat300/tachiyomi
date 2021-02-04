@@ -281,6 +281,10 @@ class PreferencesHelper(val context: Context) {
 
     fun createLegacyBackup() = flowPrefs.getBoolean(Keys.createLegacyBackup, true)
 
+    fun saveChaptersAsZIP() = flowPrefs.getBoolean(Keys.saveChaptersAsZIP, false)
+
+    fun saveChaptersAsZIPLevel() = flowPrefs.getInt(Keys.saveChaptersAsZIPLevel, 0)
+
     fun setChapterSettingsDefault(manga: Manga) {
         prefs.edit {
             putInt(Keys.defaultChapterFilterByRead, manga.readFilter)
