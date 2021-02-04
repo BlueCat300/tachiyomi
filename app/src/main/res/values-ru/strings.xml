@@ -155,7 +155,6 @@
     <string name="picture_saved">Картинка сохранена</string>
     <string name="plan_to_read">Планирую прочитать</string>
     <string name="portrait">Портретный режим</string>
-    <string name="pref_acra_summary">Помогает исправлять любые баги. Личные данные не передаются</string>
     <string name="pref_auto_update_manga_sync">Обновлять прогресс глав после прочтения</string>
     <string name="pref_category_about">Информация</string>
     <string name="pref_category_advanced">Дополнительно</string>
@@ -172,7 +171,6 @@
     <string name="pref_download_directory">Каталог загрузок</string>
     <string name="pref_download_new">Загружать новые главы</string>
     <string name="pref_download_only_over_wifi">Загружать только через Wi-Fi</string>
-    <string name="pref_enable_acra">Отсылать отчеты о падениях</string>
     <string name="pref_page_transitions">Анимированные переходы страниц</string>
     <string name="pref_fullscreen">Полноэкранный режим</string>
     <string name="pref_image_decoder">Декодер изображений</string>

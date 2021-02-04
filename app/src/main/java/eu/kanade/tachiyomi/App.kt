@@ -13,24 +13,12 @@ import eu.kanade.tachiyomi.data.notification.Notifications
 import eu.kanade.tachiyomi.data.preference.PreferencesHelper
 import eu.kanade.tachiyomi.ui.security.SecureActivityDelegate
 import eu.kanade.tachiyomi.util.system.LocaleHelper
-import org.acra.ACRA
-import org.acra.annotation.AcraCore
-import org.acra.annotation.AcraHttpSender
-import org.acra.sender.HttpSender
 import org.conscrypt.Conscrypt
 import timber.log.Timber
 import uy.kohesive.injekt.Injekt
 import uy.kohesive.injekt.injectLazy
 import java.security.Security
 
-@AcraCore(
-    buildConfigClass = BuildConfig::class,
-    excludeMatchingSharedPreferencesKeys = [".*username.*", ".*password.*", ".*token.*"]
-)
-@AcraHttpSender(
-    uri = BuildConfig.ACRA_URI,
-    httpMethod = HttpSender.Method.PUT
-)
 open class App : Application(), LifecycleObserver {
 
     private val preferences: PreferencesHelper by injectLazy()
@@ -46,7 +34,6 @@ open class App : Application(), LifecycleObserver {
 
         Injekt.importModule(AppModule(this))
 
-        setupAcra()
         setupNotificationChannels()
 
         LocaleHelper.updateConfiguration(this, resources.configuration)
@@ -69,12 +56,6 @@ open class App : Application(), LifecycleObserver {
     fun onAppBackgrounded() {
         if (preferences.lockAppAfter().get() >= 0) {
             SecureActivityDelegate.locked = true
-        }
-    }
-
-    protected open fun setupAcra() {
-        if (BuildConfig.FLAVOR != "dev") {
-            ACRA.init(this)
         }
     }
 

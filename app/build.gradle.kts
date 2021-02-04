@@ -38,9 +38,6 @@ android {
         buildConfigField("String", "BUILD_TIME", "\"${getBuildTime()}\"")
         buildConfigField("boolean", "INCLUDE_UPDATER", "false")
 
-        // Please disable ACRA or use your own instance in forked versions of the project
-        buildConfigField("String", "ACRA_URI", "\"https://tachiyomi.kanade.eu/crash_report\"")
-
         multiDexEnabled = true
 
         ndk {
@@ -207,9 +204,6 @@ dependencies {
 
     // Logging
     implementation("com.jakewharton.timber:timber:4.7.1")
-
-    // Crash reports
-    implementation("ch.acra:acra-http:5.7.0")
 
     // Sort
     implementation("com.github.gpanther:java-nat-sort:natural-comparator-1.1")

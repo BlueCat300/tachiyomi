@@ -443,10 +443,6 @@
     <string name="check_for_updates">Check for updates</string>
     <string name="updated_version">Updated to v%1$s</string>
 
-    <!-- ACRA -->
-    <string name="pref_enable_acra">Send crash reports</string>
-    <string name="pref_acra_summary">Helps fix any bugs. No sensitive data will be sent</string>
-
 
     <!-- More -->
     <string name="label_downloaded_only">Downloaded only</string>
