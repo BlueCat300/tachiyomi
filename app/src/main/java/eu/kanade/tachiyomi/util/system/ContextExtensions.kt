@@ -12,9 +12,11 @@ import android.content.IntentFilter
 import android.content.pm.PackageManager
 import android.content.res.Resources
 import android.graphics.Color
+import android.hardware.display.DisplayManager
 import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.PowerManager
+import android.view.Display
 import android.view.View
 import android.widget.Toast
 import androidx.annotation.AttrRes
@@ -175,6 +177,24 @@ fun Context.acquireWakeLock(tag: String): PowerManager.WakeLock {
     val wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "$tag:WakeLock")
     wakeLock.acquire()
     return wakeLock
+}
+
+/**
+ * Property to get the display manager from the context.
+ */
+val Context.displayManager: DisplayManager
+    get() = getSystemService()!!
+
+/**
+ * Checking if the screen is on.
+ */
+fun Context.isScreenOn(): Boolean {
+    for (display in displayManager.displays) {
+        if (display.state == Display.STATE_ON) {
+            return true
+        }
+    }
+    return false
 }
 
 /**

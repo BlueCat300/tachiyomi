@@ -2,6 +2,7 @@ package eu.kanade.tachiyomi.data.download
 
 import android.content.Context
 import android.graphics.BitmapFactory
+import android.os.Handler
 import androidx.core.app.NotificationCompat
 import eu.kanade.tachiyomi.R
 import eu.kanade.tachiyomi.data.download.model.Download
@@ -9,7 +10,7 @@ import eu.kanade.tachiyomi.data.notification.NotificationHandler
 import eu.kanade.tachiyomi.data.notification.NotificationReceiver
 import eu.kanade.tachiyomi.data.notification.Notifications
 import eu.kanade.tachiyomi.data.preference.PreferencesHelper
-import eu.kanade.tachiyomi.util.lang.chop
+import eu.kanade.tachiyomi.util.system.isScreenOn
 import eu.kanade.tachiyomi.util.system.notificationBuilder
 import eu.kanade.tachiyomi.util.system.notificationManager
 import uy.kohesive.injekt.injectLazy
@@ -153,6 +154,14 @@ internal class DownloadNotifier(private val context: Context) {
     }
 
     /**
+     * Dismiss the downloader's finish notification. Downloader error notifications use a different id, so
+     * those can only be dismissed by the user.
+     */
+    fun dismissComplete() {
+        context.notificationManager.cancel(Notifications.ID_DOWNLOAD_CHAPTER_COMPLETE)
+    }
+
+    /**
      *  This function shows a notification to inform download tasks are done.
      */
     fun onComplete() {
@@ -170,6 +179,10 @@ internal class DownloadNotifier(private val context: Context) {
                 setProgress(0, 0, false)
 
                 show(Notifications.ID_DOWNLOAD_CHAPTER_COMPLETE)
+
+                if (context.isScreenOn()) {
+                    Handler().postDelayed({ dismissComplete() }, 1000 * 10)
+                }
             }
         }
 
