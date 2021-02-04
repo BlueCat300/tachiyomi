@@ -14,3 +14,4 @@ app/**/output.json
 
 # Hebrew assets are copied on build
 app/src/main/res/values-iw/
+/app/standard/debug/output-metadata.json

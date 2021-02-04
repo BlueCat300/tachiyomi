@@ -1,6 +1,7 @@
 -dontobfuscate
 
 # Extensions may require methods unused in the core app
+# noinspection ShrinkerUnresolvedReference
 -dontwarn eu.kanade.tachiyomi.**
 -keep class eu.kanade.tachiyomi.** { public protected private *; }
 
